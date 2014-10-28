@@ -16,6 +16,7 @@ namespace MvcWebApplication.Models
         [Required]
         [MinLength(3)]
         [StringLength(200)]
+        [DataType(DataType.EmailAddress)]
         public string Correo { get; set; }
 
         [Required]
@@ -31,9 +32,10 @@ namespace MvcWebApplication.Models
 
         [Required]
         [MinLength(3)]
+        [Compare("Clave")]
         [StringLength(200)]
         [DataType(DataType.Password)]
-        [Compare("Clave")]
+        [Display(Name="Confirmación de clave")]
         public string ClaveConfirmacion { get; set; }
     }
 }
