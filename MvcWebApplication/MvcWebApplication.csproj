@@ -178,10 +178,12 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Usuarios\Ingresar.cshtml" />
+    <Content Include="Views\Usuarios\Registrarse.cshtml" />
+    <Content Include="Views\Usuarios\RegistroFinalizado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Usuarios\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
