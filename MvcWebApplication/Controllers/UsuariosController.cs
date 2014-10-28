@@ -20,6 +20,7 @@ namespace MvcWebApplication.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult Ingresar(ModeloUsuariosIngresar modelo)
         {
             if (ModelState.IsValid)
