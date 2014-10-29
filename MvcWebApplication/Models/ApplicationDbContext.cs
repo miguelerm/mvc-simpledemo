@@ -9,5 +9,7 @@ namespace MvcWebApplication.Models
     public class ApplicationDbContext : DbContext
     {
         public DbSet<Usuario> Usuarios { get; set; }
+
+        public DbSet<Rol> Roles { get; set; }
     }
 }

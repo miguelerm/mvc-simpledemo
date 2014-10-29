@@ -130,6 +130,7 @@
     <Compile Include="Models\ModeloUsuariosRegistrarse.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
