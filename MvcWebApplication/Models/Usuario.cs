@@ -35,5 +35,12 @@ namespace MvcWebApplication.Models
         [StringLength(200)]
         [DataType(DataType.Password)]
         public string Clave { get; set; }
+
+        public ICollection<Rol> Roles { get; set; }
+
+        public Usuario()
+        {
+            Roles = new HashSet<Rol>();
+        }
     }
 }

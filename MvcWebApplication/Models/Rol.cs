@@ -19,5 +19,12 @@ namespace MvcWebApplication.Models
 
         [StringLength(500)]
         public string Descripcion { get; set; }
+
+        public ICollection<Usuario> Usuarios { get; set; }
+
+        public Rol()
+        {
+            Usuarios = new List<Usuario>();
+        }
     }
 }
