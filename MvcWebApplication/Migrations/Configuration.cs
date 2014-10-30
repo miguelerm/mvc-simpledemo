@@ -12,6 +12,7 @@ namespace MvcWebApplication.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "MvcWebApplication.Models.ApplicationDbContext";
         }
 
