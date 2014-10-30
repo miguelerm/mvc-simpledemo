@@ -111,7 +111,7 @@ namespace MvcWebApplication.Controllers
             base.Dispose(disposing);
         }
 
-        private string Encriptar(string login, string clave)
+        public static string Encriptar(string login, string clave)
         {
             // Se concatena el login + clave + login para que
             // si dos usuarios tienen claves iguales, no se sepa
@@ -120,7 +120,7 @@ namespace MvcWebApplication.Controllers
             return CalcularMd5(texto);
         }
 
-        private string CalcularMd5(string texto)
+        private static string CalcularMd5(string texto)
         {
             using (MD5 md5Hash = MD5.Create())
             {
