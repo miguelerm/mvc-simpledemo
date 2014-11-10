@@ -23,7 +23,24 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Authenticated", "AuthenticatedDemo", "Home")</li>
+                        if (User.IsInRole("Almighties"))
+                        {
+                            <li>@Html.ActionLink("Admins", "AdminsDemo", "Home")</li>
+                            <li>@Html.ActionLink("Admins or Users", "AdminsUsersDemo", "Home")</li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Users", "UsersDemo", "Home")</li>
+                            <li>@Html.ActionLink("Admins or Users", "AdminsUsersDemo", "Home")</li>
+                        }
+                    }
                 </ul>
+
+
+
             </div>
         </div>
     </div>
