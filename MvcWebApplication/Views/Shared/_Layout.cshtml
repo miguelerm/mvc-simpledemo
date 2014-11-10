@@ -39,8 +39,26 @@
                     }
                 </ul>
 
-
-
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Ingresar", "Ingresar", "Usuarios")</li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">@User.Identity.Name <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink("Salir", "Salir", "Usuarios")</li>
+                                <li>@Html.ActionLink("Perfil", "Perfil", "Usuarios")</li>
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink("Cambiar clave", "CambiarClave", "Usuarios")</li>
+                            </ul>
+                        </li>
+                    </ul>
+                }
             </div>
         </div>
     </div>

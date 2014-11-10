@@ -54,7 +54,7 @@ namespace MvcWebApplication.Migrations
                     Nombre = "Administrador del sistema",
                     Correo = "admin@demo",
                     FechaCreacion = DateTime.Now,
-                    Clave = UsuariosController.Encriptar("admin", "admin")
+                    Clave = UsuariosController.EncriptarClave("admin", "admin")
                 };
 
                 context.Usuarios.Add(admin);

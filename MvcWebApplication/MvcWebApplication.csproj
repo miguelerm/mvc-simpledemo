@@ -126,6 +126,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\CustomPrincipal.cs" />
+    <Compile Include="Models\ModeloUsuariosCambiarClave.cs" />
     <Compile Include="Models\ModeloUsuariosIngresar.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -150,6 +151,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <None Include="Properties\PublishProfiles\demo.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -188,6 +190,9 @@
     <Content Include="Views\Home\UsersDemo.cshtml" />
     <Content Include="Views\Home\AdminsDemo.cshtml" />
     <Content Include="Views\Home\AdminsUsersDemo.cshtml" />
+    <Content Include="Views\Usuarios\Perfil.cshtml" />
+    <Content Include="Views\Usuarios\CambiarClave.cshtml" />
+    <Content Include="Views\Usuarios\ClaveModificada.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

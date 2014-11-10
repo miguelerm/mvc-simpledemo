@@ -36,7 +36,7 @@ namespace MvcWebApplication.Controllers
 
 
                 // Se comparan las claves (ambas encriptadas)
-                if (usuario.Clave != Encriptar(modelo.Login, modelo.Clave))
+                if (usuario.Clave != EncriptarClave(modelo.Login, modelo.Clave))
                 {
                     ModelState.AddModelError("", "Usuario o clave incorrectas");
                     return View(modelo);
@@ -85,7 +85,7 @@ namespace MvcWebApplication.Controllers
                     Login = modelo.Login,
                     Nombre = modelo.Nombre,
                     Correo = modelo.Correo,
-                    Clave = Encriptar(modelo.Login, modelo.Clave)
+                    Clave = EncriptarClave(modelo.Login, modelo.Clave)
                 };
 
                 db.Usuarios.Add(usuario);
@@ -104,6 +104,57 @@ namespace MvcWebApplication.Controllers
             return View();
         }
 
+
+        [Authorize]
+        public ActionResult Salir()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
+
+        [Authorize]
+        public ActionResult Perfil()
+        {
+            var usuario = User.Identity as CustomPrincipal;
+            return View(usuario);
+        }
+
+        [Authorize]
+        public ActionResult CambiarClave()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult CambiarClave(ModeloUsuariosCambiarClave modelo)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(modelo);
+            }
+            
+            var login = User.Identity.Name;
+            var usuario = db.Usuarios.Single(x => x.Login == login);
+
+            if (usuario.Clave != EncriptarClave(usuario.Login, modelo.ClaveActual))
+            {
+                ModelState.AddModelError("ClaveActual", "La clave actual no es correcta.");
+                return View(modelo);
+            }
+
+            usuario.Clave = EncriptarClave(usuario.Login, modelo.ClaveNueva);
+
+            db.SaveChanges();
+            return RedirectToAction("ClaveModificada");
+        }
+
+        [Authorize]
+        public ActionResult ClaveModificada()
+        {
+            return View();
+        }
+
         protected override void Dispose(bool disposing)
         {
             // se cierra la conexion a la base de datos.
@@ -111,7 +162,7 @@ namespace MvcWebApplication.Controllers
             base.Dispose(disposing);
         }
 
-        public static string Encriptar(string login, string clave)
+        public static string EncriptarClave(string login, string clave)
         {
             // Se concatena el login + clave + login para que
             // si dos usuarios tienen claves iguales, no se sepa
