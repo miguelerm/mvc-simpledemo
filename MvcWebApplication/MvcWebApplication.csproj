@@ -125,6 +125,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\CustomPrincipal.cs" />
     <Compile Include="Models\ModeloUsuariosIngresar.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -183,6 +184,10 @@
     <Content Include="Views\Usuarios\Ingresar.cshtml" />
     <Content Include="Views\Usuarios\Registrarse.cshtml" />
     <Content Include="Views\Usuarios\RegistroFinalizado.cshtml" />
+    <Content Include="Views\Home\AuthenticatedDemo.cshtml" />
+    <Content Include="Views\Home\UsersDemo.cshtml" />
+    <Content Include="Views\Home\AdminsDemo.cshtml" />
+    <Content Include="Views\Home\AdminsUsersDemo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

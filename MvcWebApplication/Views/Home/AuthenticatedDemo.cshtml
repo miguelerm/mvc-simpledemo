@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "Authenticated Demo";
+}
+
+<h2>Authenticated Demo</h2>
+
+<p>@ViewBag.Message</p>
+
+<blockquote><p>you are an <strong>@(User.IsInRole("Almighties") ? "Admin" : "User")</strong>.</p></blockquote>

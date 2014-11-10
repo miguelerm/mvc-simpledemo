@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "Admins or Users Demo";
+}
+
+<h2>Admins or Users Demo</h2>
+
+<p>@ViewBag.Message</p>
+
+<blockquote><p>you are an <strong>@(User.IsInRole("Almighties") ? "Admin" : "User")</strong>.</p></blockquote>

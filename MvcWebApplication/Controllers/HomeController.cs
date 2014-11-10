@@ -26,5 +26,34 @@ namespace MvcWebApplication.Controllers
 
             return View();
         }
+
+        [Authorize]
+        public ActionResult AuthenticatedDemo()
+        {
+            ViewBag.Message = "Page, everyone authenticated access";
+            return View();
+        }
+
+        [Authorize(Roles = "Muggles")]
+        public ActionResult UsersDemo()
+        {
+            ViewBag.Message = "Page, users only access";
+            return View();
+        }
+
+        [Authorize(Roles = "Almighties")]
+        public ActionResult AdminsDemo()
+        {
+            ViewBag.Message = "Page, Admins only access";
+            return View();
+        }
+
+        [Authorize(Roles = "Almighties, Muggles")]
+        public ActionResult AdminsUsersDemo()
+        {
+            ViewBag.Message = "Page, users or admins access";
+            return View();
+        }
+
     }
 }
