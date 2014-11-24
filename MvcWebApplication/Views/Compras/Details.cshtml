@@ -1,0 +1,69 @@
+﻿@model MvcWebApplication.Models.Compra
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Compra</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Proveedor.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proveedor.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+    </dl>
+</div>
+
+<table class="table table-bordered table-condensed table-striped">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>SubTotal</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>@(((IEnumerable<MvcWebApplication.Models.CompraDetalle>)ViewBag.CompraDetalles).Sum(x => x.Producto.Precio * x.Cantidad).ToString("c2"))</th>
+            <th>&nbsp;</th>
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach (MvcWebApplication.Models.CompraDetalle item in ViewBag.CompraDetalles)
+        {
+            <tr>
+                <td>@item.Producto.Nombre</td>
+                <td>@item.Producto.Precio.ToString("c2")</td>
+                <td>@item.Cantidad</td>
+                <td>@((item.Producto.Precio * item.Cantidad).ToString("c2"))</td>
+                <td>@Html.ActionLink("Editar", "Edit", "ComprasDetalle", new { compraId = item.CompraId, productoId = item.ProductoId }, null)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

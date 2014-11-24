@@ -1,0 +1,87 @@
+﻿@model MvcWebApplication.Models.Compra
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Compra</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Fecha, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Fecha, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProveedorNit, "ProveedorNit", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ProveedorNit", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ProveedorNit, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+
+    </div>
+}
+
+<div class="row">
+
+    @Html.ActionLink("Agregar Detalle", "Create", "ComprasDetalle", new { compraId = Model.Id }, new { @class = "btn btn-primary" })
+
+    <table class="table table-bordered table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>SubTotal</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>@(((IEnumerable<MvcWebApplication.Models.CompraDetalle>)ViewBag.CompraDetalles).Sum(x => x.Producto.Precio * x.Cantidad).ToString("c2"))</th>
+                <th>&nbsp;</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            @foreach (MvcWebApplication.Models.CompraDetalle item in ViewBag.CompraDetalles)
+            {
+                <tr>
+                    <td>@item.Producto.Nombre</td>
+                    <td>@item.Producto.Precio.ToString("c2")</td>
+                    <td>@item.Cantidad</td>
+                    <td>@((item.Producto.Precio * item.Cantidad).ToString("c2"))</td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", "ComprasDetalle", new { compraId = item.CompraId, productoId = item.ProductoId }, null) |
+                        @Html.ActionLink("Eliminar", "Delete", "ComprasDetalle", new { compraId = item.CompraId, productoId = item.ProductoId }, null)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

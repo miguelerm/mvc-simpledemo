@@ -116,7 +116,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ComprasController.cs" />
+    <Compile Include="Controllers\ComprasDetalleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductosController.cs" />
+    <Compile Include="Controllers\ProveedoresController.cs" />
     <Compile Include="Controllers\UsuariosController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -125,7 +129,9 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\CompraDetalle.cs" />
     <Compile Include="Models\CustomPrincipal.cs" />
+    <Compile Include="Models\Compra.cs" />
     <Compile Include="Models\ModeloUsuariosCambiarClave.cs" />
     <Compile Include="Models\ModeloUsuariosIngresar.cs">
       <SubType>Code</SubType>
@@ -133,6 +139,8 @@
     <Compile Include="Models\ModeloUsuariosRegistrarse.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\Producto.cs" />
+    <Compile Include="Models\Proveedor.cs" />
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -193,6 +201,26 @@
     <Content Include="Views\Usuarios\Perfil.cshtml" />
     <Content Include="Views\Usuarios\CambiarClave.cshtml" />
     <Content Include="Views\Usuarios\ClaveModificada.cshtml" />
+    <Content Include="Views\Proveedores\Create.cshtml" />
+    <Content Include="Views\Proveedores\Delete.cshtml" />
+    <Content Include="Views\Proveedores\Details.cshtml" />
+    <Content Include="Views\Proveedores\Edit.cshtml" />
+    <Content Include="Views\Proveedores\Index.cshtml" />
+    <Content Include="Views\Productos\Create.cshtml" />
+    <Content Include="Views\Productos\Delete.cshtml" />
+    <Content Include="Views\Productos\Details.cshtml" />
+    <Content Include="Views\Productos\Edit.cshtml" />
+    <Content Include="Views\Productos\Index.cshtml" />
+    <Content Include="Views\Compras\Create.cshtml" />
+    <Content Include="Views\Compras\Delete.cshtml" />
+    <Content Include="Views\Compras\Details.cshtml" />
+    <Content Include="Views\Compras\Edit.cshtml" />
+    <Content Include="Views\Compras\Index.cshtml" />
+    <Content Include="Views\ComprasDetalle\Create.cshtml" />
+    <Content Include="Views\ComprasDetalle\Delete.cshtml" />
+    <Content Include="Views\ComprasDetalle\Details.cshtml" />
+    <Content Include="Views\ComprasDetalle\Edit.cshtml" />
+    <Content Include="Views\ComprasDetalle\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -26,6 +26,9 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Authenticated", "AuthenticatedDemo", "Home")</li>
+                        <li>@Html.ActionLink("Proveedores", "Index", "Proveedores")</li>
+                        <li>@Html.ActionLink("Productos", "Index", "Productos")</li>
+                        <li>@Html.ActionLink("Compras", "Index", "Compras")</li>
                         if (User.IsInRole("Almighties"))
                         {
                             <li>@Html.ActionLink("Admins", "AdminsDemo", "Home")</li>
